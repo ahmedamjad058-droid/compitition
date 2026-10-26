@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator - Ocean Legacy Miniatures</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="invoice.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">OCEAN LEGACY <span>MINIATURES</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="featured.html">Featured</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="invoice.html" class="active">Invoice</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Invoice Generator</h1>
+        <p>Fill in the order. The invoice number, date and totals are generated automatically.</p>
+    </section>
+
+    <section class="inv-section">
+        <div class="container inv-layout">
+
+            <!-- FORM -->
+            <div class="inv-form">
+                <h3>Customer</h3>
+                <div class="inv-grid2">
+                    <div><label>Full Name</label><input type="text" id="cName" placeholder="Customer name"></div>
+                    <div><label>Phone</label><input type="tel" id="cPhone" placeholder="03XX-XXXXXXX"></div>
+                </div>
+                <label>Email</label>
+                <input type="email" id="cEmail" placeholder="you@email.com">
+                <label>Address</label>
+                <input type="text" id="cAddress" placeholder="Street, city">
+                <label>Country</label>
+                <select id="cCountry">
+                    <option>Pakistan</option>
+                    <option>USA</option>
+                    <option>India</option>
+                    <option>UAE</option>
+                    <option>Other</option>
+                </select>
+
+                <h3>Invoice</h3>
+                <div class="inv-grid2">
+                    <div><label>Invoice Date</label><input type="date" id="invDate"></div>
+                    <div><label>Invoice No. (auto)</label><input type="text" id="invNoField" readonly></div>
+                </div>
+
+                <h3>Items</h3>
+                <div class="inv-row inv-row-head">
+                    <span>Product</span><span>Qty</span><span>Price (Rs.)</span><span></span>
+                </div>
+                <div id="items"></div>
+                <button type="button" class="inv-btn inv-btn-light" id="addItem">+ Add Item</button>
+
+                <h3>Charges</h3>
+                <div class="inv-grid4">
+                    <div><label>Discount %</label><input type="number" id="discount" min="0" max="100" value="0"></div>
+                    <div><label>Shipping (Rs.)</label><input type="number" id="shipping" min="0" value="0"></div>
+                    <div><label>Tax %</label><input type="number" id="tax" min="0" value="0"></div>
+                    <div><label>Advance Paid (Rs.)</label><input type="number" id="advance" min="0" value="0"></div>
+                </div>
+
+                <label>Notes</label>
+                <textarea id="notes">Thank you for choosing Ocean Legacy Miniatures. Each model is handcrafted to order.</textarea>
+
+                <div class="inv-actions">
+                    <button type="button" class="inv-btn" id="printBtn">Save &amp; Print / PDF</button>
+                    <button type="button" class="inv-btn inv-btn-light" id="newBtn">New Invoice</button>
+                </div>
+                <p class="inv-hint">In the print window choose "Save as PDF" to download the invoice.</p>
+
+                <h3>Saved Invoices</h3>
+                <div id="history" class="inv-history"></div>
+            </div>
+
+            <!-- PREVIEW -->
+            <div class="inv-preview-wrap">
+                <div id="invoice" class="invoice"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer><p>© 2026 Ocean Legacy Miniatures | Sialkot</p></footer>
+
+    <script src="invoice.js"></script>
+</body>
+</html>
